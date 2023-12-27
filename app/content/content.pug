@@ -1,0 +1,39 @@
+link(rel="stylesheet" href="content.css")
+
+.content 
+    .content__header 
+        p Hello Evano ,
+    .content__table 
+        .content__table-top
+            .content__table-header 
+                p All Customers 
+                p Active Members 
+            input(type="text" placeholer="Search")
+        .content__table-main 
+            .content__top-row
+                p Customer Name
+                p Company
+                p Phone Nubmer
+                p Email
+                p Country
+                p Status
+            each item in  [ {customerName: 'Jane Cooper', company: 'Microsoft', phone: '(225) 555-0118', email: 'jane@microsoft.com', country: 'United States', status: 'Active'},  {customerName: 'Floyd Miles', company: 'Yahoo', phone: '(205) 555-0100', email: 'floyd@yahoo.com', country: 'Kiribati', status: 'Inactive'}, {customerName: 'Ronald Richards', company: 'Adobe', phone: '(302) 555-0107', email: 'ronald@adobe.com', country: 'Israel', status: 'Inactive'}, {customerName: 'Marvin McKinney', company: 'Tesla', phone: '(252) 555-0126', email: 'marvin@tesla.com', country: 'Iran', status: 'Active'}, {customerName: 'Jerome Bell', company: 'Google', phone: '(629) 555-0129', email: 'jerome@google.com', country: 'Réunion', status: 'Active'}, {customerName: 'Kathryn Murphy', company: 'Microsoft', phone: '(406) 555-0120', email: 'kathryn@microsoft.com', country: 'Curaçao', status: 'Active'}, {customerName: 'Jacob Jones', company: 'Yahoo', phone: '(208) 555-0112', email: 'jacob@yahoo.com', country: 'Brazil', status: 'Active'}, {customerName: 'Kristin Watson', company: 'Facebook', phone: '(704) 555-0127', email: 'kristin@facebook.com', country: 'Åland Islands', status: 'Inactive'},]
+                .content__row
+                    p=item.customerName
+                    p=item.company
+                    p=item.phone
+                    p=item.email
+                    p=item.country
+                    p(class=`content__row_${(item.status).toLowerCase()}`)=item.status
+        .content__bottom 
+            .content__showing-data
+                p Showing data 1 to 8 of  256K entries 
+            .content__pagination
+                - var numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40]
+                - var length = numbers.length
+                each number, index in numbers
+                    if(number <=4)
+                        .content__paginattion-number= number 
+                    else if index === length - 1
+                        .content__pagination-dots= '...'
+                        .content__pagination-number= number

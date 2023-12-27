@@ -1,0 +1,12 @@
+
+link(rel="stylesheet" href="sidebar.css") 
+.sidebar 
+    .sidebar__logo 
+        img(src="./img/logo-icon.svg" alt="")
+        p Dashboard <span>v.01</span>
+    ul.sidebar__links
+        each link, index in  [ { iconPath: "", linkText: "Dashboard" }, { iconPath: "", linkText: "Product" }, { iconPath: "", linkText: "Customers" }, { iconPath: "", linkText: "Income" }, { iconPath: "", linkText: "Promote" }, { iconPath: "", linkText: "Help" }]
+            a(href='#')
+                img(src=`./img/sidebar-icon-${index+1}.svg`, alt="")
+                p= link.linkText
+                img(src="./img/sidebar-arrow.svg" alt="")
